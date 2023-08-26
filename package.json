@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build && npx tailwindcss -i ./src/styles.css -o ./dist/ug-examine-app/output.css",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "gen:staff:main:api": "openapi-generator-cli generate -i ./main.openapi.yaml -g typescript-angular -p=removeOperationIdPrefix=true  -o projects/staff/src/app/api/main/v1",

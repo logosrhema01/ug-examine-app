@@ -36,11 +36,11 @@ export class AuthService {
         this.storeItems(accessToken, decoded);
         this.router.navigate(['/staff']);
         break;
-      case User.RoleEnum.Admin:
+      case User.RoleEnum.Student:
         this.storeItems(accessToken, decoded);
         this.router.navigate(['/student']);
         break;
-      case User.RoleEnum.Admin:
+      case User.RoleEnum.Staff:
         this.storeItems(accessToken, decoded);
         this.router.navigate(['/staff']);
         break;

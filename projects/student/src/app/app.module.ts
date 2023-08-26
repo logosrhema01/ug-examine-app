@@ -59,7 +59,7 @@ const providers: (Provider | EnvironmentProviders)[] | undefined = [
 
 export function apiConfigFactory(): Configuration {
   const params: ConfigurationParameters = {
-    basePath: 'http://localhost:8080',
+    basePath: 'https://0fca-102-223-21-195.ngrok-free.app',
   };
   return new Configuration(params);
 }
