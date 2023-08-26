@@ -1,0 +1,110 @@
+<div class="md:px-10 mx-auto w-full -m-24 h-screen max-w-max">
+  <div class="flex flex-wrap place-content-center mt-4 max-w-max">
+    <div>
+      <div class="rounded-t bg-white mb-0 px-6 py-6">
+        <div class="text-center flex justify-between">
+          <h6 class="text-blueGray-700 text-xl font-bold">
+            Add Staff
+          </h6>
+        </div>
+        <form [formGroup]="allocationForm">
+          <div class="my-4">
+            <label for="courses">Course: &nbsp;</label>
+            <input matInput required list="courses" name="courses" formControlName="course"/>
+
+            <datalist id="courses">
+                <option *ngFor="let course of courses$" [value]="course.id" >{{course.code}} </option>
+            </datalist>
+          </div>
+          <div class="my-4">
+            <label for="staff">Staff:&nbsp;</label>
+            <input matInput required list="staff" name="staff" formControlName="staff" />
+
+            <datalist id="staff">
+                <option *ngFor="let staff of staff$" [value]="staff.id">{{staff.surname + ' ' + staff.othername + ' - ' + staff.id}} </option>
+            </datalist>
+          </div>
+          <mat-form-field appearance="fill" class="w-full my-3 py-3">
+            <mat-label>Description</mat-label>
+            <input
+              matInput
+              placeholder="Description"
+              name="description"
+              formControlName="description"
+              class="py-3"
+              required
+            />
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="w-full my-3 py-3">
+            <mat-label>Year</mat-label>
+            <input
+              matInput
+              type="number"
+              pattern="^[12][0-9]{3}$"
+              placeholder="Year"
+              formControlName="year"
+              name="year"
+              class="py-3"
+              required
+            />
+          </mat-form-field>
+          <div class="w-full my-3">
+            <div class="flex flex-nowrap">
+              <mat-label>Semmester</mat-label>
+              <mat-radio-group
+                matInput
+                formControlName="semmester"
+                name="semmester"
+                required
+              >
+                <mat-radio-button
+                  *ngFor="let semmester of ['1','2']"
+                  [value]="semmester"
+                >
+                  {{ semmester }}
+                </mat-radio-button>
+              </mat-radio-group>
+            </div>
+            <div class="flex flex-nowrap">
+              <mat-label>Mode of Exam</mat-label>
+              <mat-radio-group
+                matInput
+                formControlName="modeofExam"
+                name="modeofExam"
+              >
+                <mat-radio-button
+                  *ngFor="let modeofExam of modeOfExams"
+                  [value]="modeofExam"
+                >
+                  {{ modeofExam }}
+                </mat-radio-button>
+              </mat-radio-group>
+            </div>
+            <mat-form-field appearance="fill" class="w-full my-3 py-3">
+              <mat-label>No. Of Students</mat-label>
+              <input
+                matInput
+                type="number"
+                placeholder="No. Of Students"
+                formControlName="noStudents"
+                name="noStudents"
+                class="py-3"
+                required="false"
+              />
+            </mat-form-field>
+          </div>
+          <div class="flex justify-end">
+            <button
+              class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded"
+              (click)="save()"
+            >
+              Add Course
+            </button>
+          </div>
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+</div>

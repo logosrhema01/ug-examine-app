@@ -1,0 +1,91 @@
+<div class="md:px-10 mx-auto w-full -m-24 h-screen max-w-max">
+  <div class="flex flex-wrap place-content-center mt-4 max-w-max">
+    <div
+    >
+      <div class="rounded-t bg-white mb-0 px-6 py-6">
+        <div class="text-center flex justify-between">
+          <h6 class="text-blueGray-700 text-xl font-bold">
+            Add Staff
+          </h6>
+        </div>
+        <form [formGroup]="lecturerForm">
+          <mat-form-field appearance="fill" class="w-full my-3 py-3">
+            <mat-label>Staff ID</mat-label>
+            <input
+              matInput
+              placeholder="Staff ID"
+              name="staffID"
+              formControlName="id"
+              class="py-3"
+              required
+            />
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="w-full my-3 py-3">
+            <mat-label>Surname</mat-label>
+            <input
+              matInput
+              placeholder="Surname"
+              formControlName="surname"
+              name="surname"
+              class="py-3"
+              required
+            />
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="w-full my-3 py-3">
+            <mat-label>Other name</mat-label>
+            <input
+              matInput
+              placeholder="Other name"
+              formControlName="othername"
+              name="othername"
+              class="py-3"
+              required
+            />
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="w-full my-3 py-3">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              placeholder="Email"
+              formControlName="email"
+              name="email"
+              class="py-3"
+              required
+            />
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="w-full my-3 py-3">
+            <mat-label>Phone</mat-label>
+            <input
+              matInput
+              placeholder="Phone"
+              formControlName="phone"
+              name="phone"
+              class="py-3"
+              required
+            />
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="w-full my-3 py-3">
+            <mat-label>Department</mat-label>
+            <input
+              matInput
+              placeholder="Department"
+              formControlName="department"
+              name="department"
+              class="py-3"
+              required
+            />
+          </mat-form-field>
+          <div class="flex justify-end">
+            <button
+              class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded"
+              (click)="save()"
+            >
+              Save Lecturer
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
