@@ -23,7 +23,7 @@
             name="staff_search"
             placeholder="Search here..."
             (keyup)="applyFilter($any($event.target).value)"
-            class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:ring w-full pl-10"
+            class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-sm shadow outline-none focus:outline-none focus:ring w-full pl-10"
           />
         </div>
       </div>
@@ -32,17 +32,17 @@
         <!-- Position Column -->
         <ng-container matColumnDef="staffId">
           <mat-header-cell *matHeaderCellDef> Staff ID</mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{ element.staff.id }} </mat-cell>
+          <mat-cell *matCellDef="let element"> {{ element.staffId }} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="staffSurname">
           <mat-header-cell *matHeaderCellDef> Staff Surname</mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{ element.staff.surname }} </mat-cell>
+          <mat-cell *matCellDef="let element"> {{ element.staffSurname }} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="staffOthername">
           <mat-header-cell *matHeaderCellDef> Staff Othername</mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{ element.staff.othername }} </mat-cell>
+          <mat-cell *matCellDef="let element"> {{ element.staffOthername }} </mat-cell>
         </ng-container>
 
         <!-- Name Column -->

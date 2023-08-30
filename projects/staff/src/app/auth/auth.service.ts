@@ -13,6 +13,7 @@ export class AuthService {
   constructor(private authService: APIAuthService, private router: Router) {}
 
   login(username: string, password: string) {
+    localStorage.clear();
     return (
       this.authService.signIn({
         username,
@@ -51,7 +52,7 @@ export class AuthService {
   }
 
   private storeItems(accessToken: string, decoded: any) {
-    const expiresAt = moment().add(decoded.expiresIn, 'second');
+    const expiresAt = moment().add(decoded.exp, 'second');
     localStorage.setItem('role', decoded.role)
     localStorage.setItem('access_token', accessToken);
     localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
@@ -67,9 +68,11 @@ export class AuthService {
     const accessToken = localStorage.getItem('access_token')
     if(!accessToken) return false;
     const decoded = jwtDecode(accessToken) as any;
-    if(decoded.role !== User.RoleEnum.Admin || decoded.role !== User.RoleEnum.Staff)
-      return false;
-    return moment().isBefore(this.getExpiration());
+    if(decoded.role === User.RoleEnum.Admin || decoded.role === User.RoleEnum.Staff)
+    {
+      return moment().isBefore(this.getExpiration());
+    }
+    return false;
   }
 
   isLoggedOut() {

@@ -13,9 +13,12 @@ import { LoginComponent } from './views/auth/login/login.component';
 import { RegisterComponent } from './views/auth/register/register.component';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth/auth.service';
+import { TicketsComponent } from './views/tickets/tickets.component';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class LoginActivate implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -51,6 +54,7 @@ const routes: Routes = [
       { path: 'add-lecturer', component: AddLecturerComponent },
       { path: 'allocations', component: AllocationsComponent },
       { path: 'add-allocation', component: AddAllocationComponent },
+      { path: 'tickets', component: TicketsComponent },
       // { path: "tables", component: TablesComponent },
       // { path: "maps", component: MapsComponent },
       { path: "", redirectTo: "timetable", pathMatch: "full" },
@@ -59,7 +63,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

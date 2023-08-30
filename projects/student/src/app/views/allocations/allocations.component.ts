@@ -61,7 +61,10 @@ export class AllocationsComponent {
         allocationID: allocation.id,
       })
       .subscribe(
-        () => this.router.navigateByUrl('/student/tickets'),
+        (res) => {
+          window.alert(`Ticket ${res.id} successfully created`)
+          this.router.navigateByUrl('/student/tickets')
+        },
         () => window.alert("Couldn't create ticket, one already open")
       );
   }

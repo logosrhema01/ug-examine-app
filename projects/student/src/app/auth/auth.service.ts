@@ -96,7 +96,7 @@ export class StudentAuthService {
   }
 
   private storeItems(accessToken: string, decoded: any) {
-    const expiresAt = moment().add(decoded.expiresIn, 'second');
+    const expiresAt = moment().add(decoded.exp, 'second');
     localStorage.setItem('role', decoded.role);
     localStorage.setItem('access_token', accessToken);
     localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
@@ -111,9 +111,9 @@ export class StudentAuthService {
     const accessToken = localStorage.getItem('access_token')
     if(!accessToken) return false;
     const decoded = jwtDecode(accessToken) as any;
-    if(decoded.role !== User.RoleEnum.Student || decoded.role !== User.RoleEnum.Admin)
-      return false;
-    return moment().isBefore(this.getExpiration());
+    if(decoded.role === User.RoleEnum.Student || decoded.role == User.RoleEnum.Admin)
+      return moment().isBefore(this.getExpiration());
+    return false;
   }
 
   isLoggedOut() {

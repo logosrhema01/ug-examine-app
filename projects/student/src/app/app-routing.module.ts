@@ -10,7 +10,9 @@ import { AllocationsComponent } from './views/allocations/allocations.component'
 import { Observable } from 'rxjs';
 import { StudentAuthService } from './auth/auth.service';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class LoginActivate implements CanActivate {
   constructor(private authService: StudentAuthService, private router: Router) {}
 
